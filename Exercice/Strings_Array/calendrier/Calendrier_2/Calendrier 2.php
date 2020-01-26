@@ -45,6 +45,14 @@ $TableauMonth = array (
         'Novembre',
         'Décembre');
 
+/*function Stop($element,$element2)                                      //Cette fonction est censer faire arreter le calendrier a 31
+{
+    if($element == date("t")+1)                             //Condition pour que la boucle s'arrête à la 31 date
+    {
+        $element2 = 7;
+    }
+}
+*/
 echo ("<div class='month'><ul><li class=\"prev\">&#10094;</li>");
 echo ("<li class=\"next\">&#10095;</li>");
 echo ("<li>").$TableauMonth[date("m" )-1].("<br><span style=\"font-size:18px\">").date("o").("</span></li></ul></div>");
@@ -71,10 +79,7 @@ for ($ligne = 0; $ligne <5;$ligne++)                /*Boucle for qui fait boucle
             echo("<li>$compteur</li>");                     /*Affiche la variable avec la date à l'intérieur*/
         }
         $compteur++;                                    /*Ajoute 1 à la variable afin que sa ne soit jamais la même*/
-        if($compteur == date("t")+1)                             /*Condition pour que la boucle s'arrête à la 31 date*/
-        {
-            $colonne = 7;
-        }
+        stop($compteur,$colonne);
     }
 }
 echo("</ul>");                                            /*Ferme le ul qui signifie la fin du calendrier*/
